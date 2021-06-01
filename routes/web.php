@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MainController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// table routes
+Route::get('/tables', [App\Http\Controllers\HomeController::class, 'tables'])->name('tables');
+Route::get('/tables/{name}', [App\Http\Controllers\HomeController::class, 'table']);
+Route::post('/tables/{name}/update', [App\Http\Controllers\HomeController::class, 'updateTable']);
