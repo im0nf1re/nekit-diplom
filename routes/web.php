@@ -24,3 +24,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/tables', [App\Http\Controllers\HomeController::class, 'tables'])->name('tables');
 Route::get('/tables/{name}', [App\Http\Controllers\HomeController::class, 'table']);
 Route::post('/tables/{name}/update', [App\Http\Controllers\HomeController::class, 'updateTable']);
+
+//Categories
+Route::get('/category/{id}', [MainController::class, 'getMonumentsByCathegoryId']);
+
+Route::get('/description/{id}', [MainController::class, 'description']);
+
+//Vis
+Route::get('/visited/{id}', [MainController::class, 'visited']);
+
+Route::get('/visit/{id}', [MainController::class, 'visit']);

@@ -21,7 +21,7 @@ class CreateMonumentsTable extends Migration
             $table->string('preview_img_path');
             $table->string('x_coordinate');
             $table->string('y_coordinate');
-            $table->foreignId('region_id')->constrained();
+            $table->foreignId('category_id')->constrained();
             $table->timestamps();
         });
     }
